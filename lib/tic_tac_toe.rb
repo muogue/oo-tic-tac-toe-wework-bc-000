@@ -61,21 +61,21 @@ class TicTacToe
 
   def won?(board)
     WIN_COMBINATIONS.detect do |combo|
-      board[combo[0]] == board[combo[1]] &&
-      board[combo[1]] == board[combo[2]] &&
-      position_taken?(board, combo[0])
+      @board[combo[0]] == @board[combo[1]] &&
+      @board[combo[1]] == @board[combo[2]] &&
+      position_taken?(combo[0])
     end
   end
 
-  def full?(board)
-    board.all?{|token| token == "X" || token == "O"}
+  def full?()
+    @board.all?{|token| token == "X" || token == "O"}
   end
 
-  def draw?(board)
-    !won?(board) && full?(board)
+  def draw?()
+    !won?(@) && full?()
   end
 
-  def over?(board)
-    won?(board) || draw?(board)
+  def over?()
+    won?() || draw?()
   end
 end
