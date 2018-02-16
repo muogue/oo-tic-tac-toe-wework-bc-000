@@ -79,7 +79,15 @@ class TicTacToe
     won?() || draw?()
   end
 
-  def over?(board)
-    won?(board) || draw?(board)
+  def play()
+    while !over?()
+      turn()
+    end
+    if won?()
+      puts "Congratulations #{winner(board)}!"
+    elsif draw?()
+      puts "Cat's Game!"
+    end
   end
+
 end
